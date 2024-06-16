@@ -1,0 +1,40 @@
+﻿@page "{id}"
+@model ChaserFood.Pages.Donors.DeleteModel
+@{
+    ViewData["Title"] = "Delete Donor";
+}
+
+<h2>Delete Donor</h2>
+
+<h3>Are you sure you want to delete this donor?</h3>
+
+<div>
+    <h4>Donor</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Phone Number</dt>
+        <dd class="col-sm-10">@Model.Donor.PhoneNumber</dd>
+        <dt class="col-sm-2">First Name</dt>
+        <dd class="col-sm-10">@Model.Donor.FirstName</dd>
+        <dt class="col-sm-2">Last Name</dt>
+        <dd class="col-sm-10">@Model.Donor.LastName</dd>
+        <dt class="col-sm-2">Street Address</dt>
+        <dd class="col-sm-10">@Model.Donor.StreetAddress</dd>
+        <dt class="col-sm-2">City</dt>
+        <dd class="col-sm-10">@Model.Donor.City</dd>
+        <dt class="col-sm-2">State</dt>
+        <dd class="col-sm-10">@Model.Donor.State</dd>
+        <dt class="col-sm-2">Zip</dt>
+        <dd class="col-sm-10">@Model.Donor.Zip</dd>
+        <dt class="col-sm-2">Email Address</dt>
+        <dd class="col-sm-10">@Model.Donor.EmailAddress</dd>
+        <dt class="col-sm-2">With School</dt>
+        <dd class="col-sm-10">@Model.Donor.WithSchool</dd>
+    </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="Donor.PhoneNumber" />
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a asp-page="./Index" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>

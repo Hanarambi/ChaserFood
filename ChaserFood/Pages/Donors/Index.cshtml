@@ -1,0 +1,47 @@
+﻿@page
+@model ChaserFood.Pages.Donors.IndexModel
+@{
+    ViewData["Title"] = "Manage Donors";
+}
+
+<h2>Manage Donors</h2>
+
+<a class="btn btn-primary" asp-page="Create">Add New Donor</a>
+
+<table class="table table-striped mt-3">
+    <thead>
+        <tr>
+            <th>Phone Number</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Street Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip</th>
+            <th>Email Address</th>
+            <th>With School</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var donor in Model.Donors)
+        {
+            <tr>
+                <td>@donor.PhoneNumber</td>
+                <td>@donor.FirstName</td>
+                <td>@donor.LastName</td>
+                <td>@donor.StreetAddress</td>
+                <td>@donor.City</td>
+                <td>@donor.State</td>
+                <td>@donor.Zip</td>
+                <td>@donor.EmailAddress</td>
+                <td>@donor.WithSchool</td>
+                <td>
+                    <a class="btn btn-sm btn-warning" asp-page="Edit" asp-route-id="@donor.PhoneNumber">Edit</a>
+                    <a class="btn btn-sm btn-danger" asp-page="Delete" asp-route-id="@donor.PhoneNumber">Delete</a>
+                    <a class="btn btn-sm btn-info" asp-page="Receipt" asp-route-id="@donor.PhoneNumber">Print Receipt</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

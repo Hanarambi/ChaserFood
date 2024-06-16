@@ -1,0 +1,104 @@
+:root {
+    --black: #303030;
+    --white: #ffffff;
+    --ltGray: #f9f9f9;
+    --dkGray: #515151;
+    --dkBlue: #1f2a5d;
+    --medBlue: #2d4685;
+    --ltBlue: #2b77ba;
+    --dkGreen: #33843e;
+    --ltGreen: #54ba5c;
+    --pink: #92597d;
+    --orange: #d07f4b;
+    --dkOrange: #B2612E;
+    --yellow: #e1be53;
+    --mint: #ecf6ed;
+    --bodyFont: myriad-pro, sans-serif;
+    --headlineFont: brandon-grotesque, sans-serif;
+    --transition: .4s all ease-in;
+}
+
+body {
+    font-family: var(--bodyFont);
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+header {
+    background-color: var(--dkBlue);
+}
+
+footer {
+    background-color: var(--dkBlue);
+    color: var(--white);
+    padding: 0;
+    width: 100%;
+    margin-top: auto;
+}
+
+.footer-top-stripe {
+    height: 5px;
+    background-color: var(--ltGreen);
+    width: 100%;
+}
+
+.footer-content {
+    padding: 1rem 0;
+    padding-top: 5px; /* Adjust to ensure no overlap with the stripe */
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: var(--white);
+}
+
+    .navbar-dark .navbar-nav .nav-link:hover {
+        color: var(--ltGreen);
+    }
+
+.jumbotron {
+    background-color: var(--ltGray);
+    color: var(--dkGray);
+}
+
+    .jumbotron .btn-primary {
+        background-color: var(--dkBlue);
+        border-color: var(--dkBlue);
+    }
+
+        .jumbotron .btn-primary:hover {
+            background-color: var(--medBlue);
+            border-color: var(--medBlue);
+        }
+
+    .jumbotron .btn-secondary {
+        background-color: var(--ltGreen);
+        border-color: var(--ltGreen);
+    }
+
+        .jumbotron .btn-secondary:hover {
+            background-color: var(--dkGreen);
+            border-color: var(--dkGreen);
+        }
+
+/* Dropdown menu custom styles */
+.navbar .dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.navbar .dropdown-menu {
+    background-color: var(--ltGreen); /* Match the green color of the menu button */
+    left: auto; /* Position dropdown to the left */
+    right: 0; /* Align dropdown to the right edge of the button */
+}
+
+.dropdown-menu a.dropdown-item {
+    color: var(--white); /* White text color for dropdown items */
+}
+
+    .dropdown-menu a.dropdown-item:hover {
+        background-color: var(--dkGreen); /* Darker green for hover */
+    }

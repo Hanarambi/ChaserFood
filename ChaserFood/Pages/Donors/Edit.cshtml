@@ -1,0 +1,50 @@
+﻿@page "{id}"
+@model ChaserFood.Pages.Donors.EditModel
+@{
+    ViewData["Title"] = "Edit Donor";
+}
+
+<h2>Edit Donor</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Donor.PhoneNumber"></label>
+        <input type="text" class="form-control" asp-for="Donor.PhoneNumber" readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="Donor.FirstName"></label>
+        <input type="text" class="form-control" asp-for="Donor.FirstName" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Donor.LastName"></label>
+        <input type="text" class="form-control" asp-for="Donor.LastName" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Donor.StreetAddress"></label>
+        <input type="text" class="form-control" asp-for="Donor.StreetAddress" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Donor.City"></label>
+        <input type="text" class="form-control" asp-for="Donor.City" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Donor.State"></label>
+        <input type="text" class="form-control" asp-for="Donor.State" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Donor.Zip"></label>
+        <input type="text" class="form-control" asp-for="Donor.Zip" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Donor.EmailAddress"></label>
+        <input type="text" class="form-control" asp-for="Donor.EmailAddress" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Donor.WithSchool"></label>
+        <select class="form-control" asp-for="Donor.WithSchool">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>

@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Chaser's Food Pantry</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+        .navbar .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .navbar .dropdown-menu {
+            background-color: var(--ltGreen); /* Match the green color of the menu button */
+            left: auto; /* Position dropdown to the left */
+            right: 0; /* Align dropdown to the right edge of the button */
+        }
+
+        .dropdown-menu a.dropdown-item {
+            color: var(--white); /* White text color for dropdown items */
+        }
+
+            .dropdown-menu a.dropdown-item:hover {
+                background-color: var(--dkGreen); /* Darker green for hover */
+            }
+    </style>
+</head>
+<body>
+    <div class="d-flex flex-column min-vh-100">
+        <header>
+            <nav class="navbar navbar-expand-lg" style="background-color: var(--dkBlue);">
+                <a class="navbar-brand text-white" href="/">Chaser's Food Pantry</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle btn text-white" style="background-color: var(--ltGreen);" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Menu
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" asp-page="/Index">Home</a>
+                                <a class="dropdown-item" asp-page="/Inventory">Manage Inventory</a>
+                                <a class="dropdown-item" asp-page="/Students">Manage Students</a>
+                                <a class="dropdown-item" asp-page="/Donors/Index">Manage Donors</a> <!-- Add this line -->
+                                <!-- Add more navigation links here -->
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div class="container flex-grow-1 mt-5">
+            @RenderBody()
+        </div>
+        <footer class="footer dkBlueBkg">
+            <div class="footer-top-stripe"></div>
+            <div class="footer-content">
+                <p class="text-center text-white">© 2024 Chaser's Food Pantry</p>
+            </div>
+        </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

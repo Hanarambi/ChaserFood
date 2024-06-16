@@ -1,0 +1,133 @@
+﻿@page
+@model InventoryModel
+@{
+    ViewData["Title"] = "Inventory";
+}
+
+<h2>Inventory Management</h2>
+
+<div id="interactive" class="viewport" style="width: 100%; height: auto; border: 1px solid black;"></div>
+<div id="notification" style="display:none; color: green; font-weight: bold;">Barcode detected and fields auto-filled.</div>
+
+<!-- Add a canvas to display the snapshot -->
+<canvas id="snapshot" width="320" height="240" style="display: none; border: 1px solid black;"></canvas>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="ScannedItem.Name"></label>
+        <input type="text" class="form-control" asp-for="ScannedItem.Name" />
+    </div>
+    <div class="form-group">
+        <label asp-for="ScannedItem.Category"></label>
+        <input type="text" class="form-control" asp-for="ScannedItem.Category" />
+    </div>
+    <div class="form-group">
+        <label asp-for="ScannedItem.Quantity"></label>
+        <input type="number" class="form-control" asp-for="ScannedItem.Quantity" />
+    </div>
+    <div class="form-group">
+        <label asp-for="ScannedItem.ExpirationDate"></label>
+        <input type="date" class="form-control" asp-for="ScannedItem.ExpirationDate" />
+    </div>
+    <div class="form-group">
+        <label asp-for="ScannedItem.Barcode"></label>
+        <input type="text" class="form-control" asp-for="ScannedItem.Barcode" readonly />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<table class="table table-striped mt-3">
+    <thead>
+        <tr>
+            <th>Item Name</th>
+            <th>Category</th>
+            <th>Quantity</th>
+            <th>Expiration Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Items)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Category</td>
+                <td>@item.Quantity</td>
+                <td>@item.ExpirationDate.ToShortDateString()</td>
+                <td>
+                    <a class="btn btn-sm btn-warning" asp-page="/Inventory/Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-sm btn-danger" asp-page="/Inventory/Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script src="~/js/quagga.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            Quagga.init({
+                inputStream: {
+                    name: "Live",
+                    type: "LiveStream",
+                    target: document.querySelector('#interactive'), // Or '#yourElement' (optional)
+                    constraints: {
+                        facingMode: "environment" // Use the back-facing camera
+                    }
+                },
+                decoder: {
+                    readers: ["code_128_reader", "ean_reader", "ean_8_reader", "code_39_reader",
+                        "code_39_vin_reader", "codabar_reader", "upc_reader", "upc_e_reader", "i2of5_reader"]
+                }
+            }, function (err) {
+                if (err) {
+                    console.log(err);
+                    return;
+                }
+                Quagga.start();
+            });
+
+            Quagga.onDetected(function (data) {
+                var code = data.codeResult.code;
+                document.getElementById("ScannedItem_Barcode").value = code;
+                document.getElementById("notification").style.display = 'block';
+
+                // Capture snapshot
+                var video = document.querySelector('#interactive video');
+                var canvas = document.getElementById('snapshot');
+                var context = canvas.getContext('2d');
+                context.drawImage(video, 0, 0, canvas.width, canvas.height);
+                canvas.style.display = 'block';
+
+                // Fetch item details using the barcode
+                fetch(`/api/barcode/details/${code}`)
+                    .then(response => response.json())
+                    .then(details => {
+                        document.getElementById("ScannedItem_Name").value = details.name || "N/A";
+                        document.getElementById("ScannedItem_Category").value = details.category || "N/A";
+                        document.getElementById("ScannedItem_Quantity").value = details.quantity || 1; // Default quantity
+                        document.getElementById("ScannedItem_ExpirationDate").value = details.expirationDate || ""; // Adjust based on your needs
+
+                        // Save to inventory
+                        fetch('/api/inventory', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(details)
+                        })
+                            .then(response => {
+                                if (response.ok) {
+                                    console.log('Item saved to inventory');
+                                } else {
+                                    console.error('Failed to save item to inventory');
+                                }
+                            })
+                            .catch(error => console.error('Error:', error));
+                    })
+                    .catch(error => console.error('Error:', error));
+            });
+        });
+    </script>
+}

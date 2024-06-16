@@ -1,0 +1,34 @@
+﻿@page
+@model StudentsModel
+@{
+    ViewData["Title"] = "Students";
+}
+
+<h2>Student Management</h2>
+<a class="btn btn-primary" asp-page="/Students/Add">Add New Student</a>
+<table class="table table-striped mt-3">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Eligibility</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model.Students)
+        {
+            <tr>
+                <td>@student.Name</td>
+                <td>@student.Email</td>
+                <td>@student.Phone</td>
+                <td>@student.IsEligible ? "Eligible" : "Not Eligible"</td>
+                <td>
+                    <a class="btn btn-sm btn-warning" asp-page="/Students/Edit" asp-route-id="@student.Id">Edit</a>
+                    <a class="btn btn-sm btn-danger" asp-page="/Students/Delete" asp-route-id="@student.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
