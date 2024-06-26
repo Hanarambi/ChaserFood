@@ -19,7 +19,9 @@
     </div>
     <div class="form-group">
         <label asp-for="ScannedItem.Category"></label>
-        <input type="text" class="form-control" asp-for="ScannedItem.Category" />
+        <select class="form-control" asp-for="ScannedItem.Category" asp-items="@(new SelectList(Model.Items.Select(i => i.Category).Distinct()))">
+        </select>
+        <input type="text" class="form-control" asp-for="ScannedItem.Category" placeholder="Or enter manually" />
     </div>
     <div class="form-group">
         <label asp-for="ScannedItem.Quantity"></label>
@@ -36,32 +38,38 @@
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
-<table class="table table-striped mt-3">
-    <thead>
-        <tr>
-            <th>Item Name</th>
-            <th>Category</th>
-            <th>Quantity</th>
-            <th>Expiration Date</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Items)
-        {
+<script src="~/js/myScript.js"></script>
+
+<div id="itemTable">
+    <table class="table table-striped mt-3">
+        <thead>
             <tr>
-                <td>@item.Name</td>
-                <td>@item.Category</td>
-                <td>@item.Quantity</td>
-                <td>@item.ExpirationDate.ToShortDateString()</td>
-                <td>
-                    <a class="btn btn-sm btn-warning" asp-page="/Inventory/Edit" asp-route-id="@item.Id">Edit</a>
-                    <a class="btn btn-sm btn-danger" asp-page="/Inventory/Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
+                <th>Item Name</th>
+                <th>Category</th>
+                <th>Quantity</th>
+                <th>Expiration Date</th>
+                <th>Actions</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Items)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Category</td>
+                    <td>@item.Quantity</td>
+                    <td>@(item.ExpirationDate?.ToShortDateString() ?? "N/A")</td>
+                    <td>
+                        <a class="btn btn-sm btn-warning" asp-page="/Inventory/Edit" asp-route-id="@item.Id">Edit</a>
+                        <form asp-page="/Inventory/Delete" asp-route-id="@item.Id" method="post" style="display:inline;">
+                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 
 @section Scripts {
     <script src="~/js/quagga.min.js"></script>

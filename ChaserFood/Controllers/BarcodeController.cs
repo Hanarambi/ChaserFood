@@ -84,4 +84,5 @@ namespace ChaserFood.Controllers
     {
         public string ImageData { get; set; }
     }
+
 }
