@@ -1,0 +1,38 @@
+﻿@page
+@model ChaserFood.Pages.NewClient.IndexModel
+@{
+    ViewData["Title"] = "New Clients";
+}
+
+<h2>New Clients</h2>
+
+<p>
+    <a asp-page="/NewClient/Create" class="btn btn-primary">Add New Client</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Phone Number</th>
+            <th>Email Address</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var client in Model.NewClients)
+        {
+            <tr>
+                <td>@client.FirstName</td>
+                <td>@client.LastName</td>
+                <td>@client.PhoneNumber</td>
+                <td>@client.EmailAddress</td>
+                <td>
+                    <a asp-page="/NewClient/Edit" asp-route-id="@client.Id" class="btn btn-warning">Edit</a>
+                    <a asp-page="/NewClient/Delete" asp-route-id="@client.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
