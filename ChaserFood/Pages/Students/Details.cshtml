@@ -1,0 +1,177 @@
+﻿@page "{id:int}"
+@model ChaserFood.Pages.Students.DetailsModel
+@{
+    ViewData["Title"] = "Student Details";
+}
+
+<h2>Student Details</h2>
+
+<div>
+    <h4>Student Information</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            School ID
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Student.SchoolID
+        </dd>
+        <dt class="col-sm-2">
+            First Name
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Student.FirstName
+        </dd>
+        <dt class="col-sm-2">
+            Last Name
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Student.LastName
+        </dd>
+        <dt class="col-sm-2">
+            Email
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Student.EmailAddress
+        </dd>
+        <dt class="col-sm-2">
+            Phone
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Student.PhoneNumber
+        </dd>
+        <dt class="col-sm-2">
+            Address
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Student.StreetAddress, @Model.Student.City, @Model.Student.State, @Model.Student.ZipCode
+        </dd>
+        <dt class="col-sm-2">
+            County
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Student.County
+        </dd>
+        <dt class="col-sm-2">
+            Age
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Student.CurrentAge
+        </dd>
+        <dt class="col-sm-2">
+            Gender
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Student.Gender
+        </dd>
+        <dt class="col-sm-2">
+            Race
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Student.Race
+        </dd>
+        <dt class="col-sm-2">
+            Employment Status
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Student.EmploymentStatus
+        </dd>
+        <dt class="col-sm-2">
+            Student Status
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Student.StudentStatus
+        </dd>
+        <dt class="col-sm-2">
+            Number of Family Members
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Student.NumberOfFamilyMembers
+        </dd>
+        <dt class="col-sm-2">
+            Number of Adults
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Student.NumberOfAdults
+        </dd>
+        <dt class="col-sm-2">
+            Number of Children
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Student.NumberOfChildren
+        </dd>
+        <dt class="col-sm-2">
+            Ages of Children
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Student.AgesOfChildren
+        </dd>
+        <dt class="col-sm-2">
+            Any Elderly
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Student.AnyElderly
+        </dd>
+        <dt class="col-sm-2">
+            Number of Employed Family Members
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Student.NumberOfEmployedFamilyMembers
+        </dd>
+        <dt class="col-sm-2">
+            Housing Status
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Student.HousingStatus
+        </dd>
+        <dt class="col-sm-2">
+            Has Transportation
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Student.HasTransportation
+        </dd>
+        <dt class="col-sm-2">
+            Has Stove
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Student.HasStove
+        </dd>
+        <dt class="col-sm-2">
+            Has Microwave
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Student.HasMicrowave
+        </dd>
+        <dt class="col-sm-2">
+            Has Can Opener
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Student.HasCanOpener
+        </dd>
+        <dt class="col-sm-2">
+            Has Running Water
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Student.HasRunningWater
+        </dd>
+        <dt class="col-sm-2">
+            Dietary Restrictions
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Student.DietaryRestrictions
+        </dd>
+        <dt class="col-sm-2">
+            Food Allergies
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Student.FoodAllergies
+        </dd>
+        <dt class="col-sm-2">
+            Types of Food Consumed
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Student.TypesOfFoodConsumed
+        </dd>
+    </dl>
+</div>
+<a asp-page="/Students" class="btn btn-secondary">Back to List</a>

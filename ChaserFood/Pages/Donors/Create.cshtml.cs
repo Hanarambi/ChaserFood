@@ -1,8 +1,8 @@
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ChaserFood.Data;
 using ChaserFood.Models;
+using System.Threading.Tasks;
 
 namespace ChaserFood.Pages.Donors
 {
@@ -10,13 +10,13 @@ namespace ChaserFood.Pages.Donors
     {
         private readonly ApplicationDbContext _context;
 
+        [BindProperty]
+        public Donor Donor { get; set; }
+
         public CreateModel(ApplicationDbContext context)
         {
             _context = context;
         }
-
-        [BindProperty]
-        public Donor Donor { get; set; }
 
         public IActionResult OnGet()
         {

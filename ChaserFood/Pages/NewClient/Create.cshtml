@@ -1,0 +1,133 @@
+﻿@page
+@model ChaserFood.Pages.NewClient.CreateModel
+@{
+    ViewData["Title"] = "New Client Sign-Up";
+}
+
+<h2>New Client Sign-Up Form</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="NewClient.SchoolID"></label>
+        <input asp-for="NewClient.SchoolID" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="NewClient.FirstName"></label>
+        <input asp-for="NewClient.FirstName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="NewClient.LastName"></label>
+        <input asp-for="NewClient.LastName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="NewClient.PhoneNumber"></label>
+        <input asp-for="NewClient.PhoneNumber" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="NewClient.EmailAddress"></label>
+        <input asp-for="NewClient.EmailAddress" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="NewClient.StreetAddress"></label>
+        <input asp-for="NewClient.StreetAddress" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="NewClient.City"></label>
+        <input asp-for="NewClient.City" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="NewClient.State"></label>
+        <input asp-for="NewClient.State" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="NewClient.ZipCode"></label>
+        <input asp-for="NewClient.ZipCode" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="NewClient.County"></label>
+        <input asp-for="NewClient.County" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="NewClient.CurrentAge"></label>
+        <input asp-for="NewClient.CurrentAge" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="NewClient.Gender"></label>
+        <input asp-for="NewClient.Gender" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="NewClient.Race"></label>
+        <input asp-for="NewClient.Race" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="NewClient.EmploymentStatus"></label>
+        <input asp-for="NewClient.EmploymentStatus" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="NewClient.StudentStatus"></label>
+        <input asp-for="NewClient.StudentStatus" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="NewClient.NumberOfFamilyMembers"></label>
+        <input asp-for="NewClient.NumberOfFamilyMembers" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="NewClient.NumberOfAdults"></label>
+        <input asp-for="NewClient.NumberOfAdults" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="NewClient.NumberOfChildren"></label>
+        <input asp-for="NewClient.NumberOfChildren" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="NewClient.AgesOfChildren"></label>
+        <input asp-for="NewClient.AgesOfChildren" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="NewClient.AnyElderly"></label>
+        <input asp-for="NewClient.AnyElderly" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="NewClient.NumberOfEmployedFamilyMembers"></label>
+        <input asp-for="NewClient.NumberOfEmployedFamilyMembers" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="NewClient.HousingStatus"></label>
+        <input asp-for="NewClient.HousingStatus" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="NewClient.HasTransportation"></label>
+        <input asp-for="NewClient.HasTransportation" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="NewClient.HasStove"></label>
+        <input asp-for="NewClient.HasStove" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="NewClient.HasMicrowave"></label>
+        <input asp-for="NewClient.HasMicrowave" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="NewClient.HasCanOpener"></label>
+        <input asp-for="NewClient.HasCanOpener" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="NewClient.HasRunningWater"></label>
+        <input asp-for="NewClient.HasRunningWater" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="NewClient.DietaryRestrictions"></label>
+        <input asp-for="NewClient.DietaryRestrictions" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="NewClient.FoodAllergies"></label>
+        <input asp-for="NewClient.FoodAllergies" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="NewClient.TypesOfFoodConsumed"></label>
+        <input asp-for="NewClient.TypesOfFoodConsumed" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<a asp-page="/NewClient/Index">Back to List</a>

@@ -5,11 +5,32 @@
 }
 
 <h2>Student Management</h2>
-<a class="btn btn-primary" asp-page="/Students/Add">Add New Student</a>
+
+<form method="get">
+    <div class="form-group">
+        <label for="SearchString">Search</label>
+        <input type="text" name="SearchString" value="@Model.SearchString" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="SearchBy">Search By</label>
+        <select name="SearchBy" class="form-control">
+            @Html.Raw(
+                     "<option value='SchoolID'" + (Model.SearchBy == "SchoolID" ? " selected" : "") + ">School ID</option>" +
+                     "<option value='LastName'" + (Model.SearchBy == "LastName" ? " selected" : "") + ">Last Name</option>"
+                     )
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<a class="btn btn-success" asp-page="/NewClient/Create">Add New Student</a>
+
 <table class="table table-striped mt-3">
     <thead>
         <tr>
-            <th>Name</th>
+            <th>School ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
             <th>Email</th>
             <th>Phone</th>
             <th>Eligibility</th>
@@ -20,13 +41,16 @@
         @foreach (var student in Model.Students)
         {
             <tr>
-                <td>@student.Name</td>
-                <td>@student.Email</td>
-                <td>@student.Phone</td>
-                <td>@student.IsEligible ? "Eligible" : "Not Eligible"</td>
+                <td>@student.SchoolID</td>
+                <td>@student.FirstName</td>
+                <td>@student.LastName</td>
+                <td>@student.EmailAddress</td>
+                <td>@student.PhoneNumber</td>
+                <td>@student.StudentStatus</td>
                 <td>
                     <a class="btn btn-sm btn-warning" asp-page="/Students/Edit" asp-route-id="@student.Id">Edit</a>
                     <a class="btn btn-sm btn-danger" asp-page="/Students/Delete" asp-route-id="@student.Id">Delete</a>
+                    <a class="btn btn-sm btn-info" asp-page="/Students/Details" asp-route-id="@student.Id">Details</a>
                 </td>
             </tr>
         }
