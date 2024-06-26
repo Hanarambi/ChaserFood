@@ -14,6 +14,7 @@ namespace ChaserFood.Data
         public DbSet<Student> Students { get; set; }
         public DbSet<Donor> Donors { get; set; }
         public DbSet<NewClientModel> NewClients { get; set; }
+        public DbSet<StudentModel> StudentModels { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -23,3 +24,4 @@ namespace ChaserFood.Data
         }
     }
 }
+  
