@@ -12,7 +12,9 @@ namespace ChaserFood.Data
 
         public DbSet<InventoryItem> InventoryItems { get; set; }
         public DbSet<Student> Students { get; set; }
-        public DbSet<Donor> Donors { get; set; } // Add this line
+        public DbSet<Donor> Donors { get; set; }
+        public DbSet<NewClientModel> NewClients { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
