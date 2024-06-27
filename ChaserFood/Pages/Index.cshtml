@@ -4,9 +4,54 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="jumbotron mt-4">
-    <h1 class="display-4">Welcome to Chaser's Food Pantry</h1>
-    <p class="lead">We are committed to providing our community with the necessary resources to manage inventory and student data efficiently and effectively. Explore our system to find out how we can help you streamline your operations.</p>
-    <hr class="my-4">
-    <p>Use the navigation bar to access different sections of the system.</p>
+<div class="video-background">
+    <video autoplay muted loop id="background-video">
+        <source src="~/videos/intro.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 </div>
+
+<div class="content">
+    <div class="jumbotron mt-4">
+        <h1 class="display-4">Welcome to Chaser's Food Pantry</h1>
+        <p class="lead">Because going hungry should never affect a student's ability to attend class and learn, the SCC Chasers Food Pantry provides food for eligible students.  Chaser's Food Pantry is a partnership with AmeriCorps that provides snacks and non-perishable items. It's aligned with additional resources on and off campus that promote the overall well being of our students.</p>
+        <hr class="my-4">
+        <p>Use the green menu button to access different sections of the system.</p>
+    </div>
+</div>
+
+<style>
+    body, html {
+        height: 100%;
+        margin: 0;
+        font-family: var(--bodyFont);
+    }
+
+    .video-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: -1;
+    }
+
+    #background-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .content {
+        position: relative;
+        z-index: 1;
+        color: white; /* Ensure the text is visible over the video */
+    }
+
+    .jumbotron {
+        background-color: rgba(0, 0, 0, 0.5); /* Add a dark background with opacity to the jumbotron */
+        color: white;
+        padding: 2rem;
+    }
+</style>
