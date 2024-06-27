@@ -13,7 +13,11 @@ namespace ChaserFood.Controllers
             _context = context;
         }
 
-
+        public IActionResult Index()
+        {
+            var items = await _context.Items.ToListAsync();
+            return View(items);
+        }
 
         [HttpPost]
         public async Task<IActionResult> Delete(int id)
