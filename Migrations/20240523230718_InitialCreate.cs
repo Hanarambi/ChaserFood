@@ -77,11 +77,11 @@ namespace ChaserFood.Migrations
         {
             BusinessId = table.Column<int>(nullable: false)
                 .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-            PhoneNumber = table.Column<string>(nullable: true),
+            PhoneNumber = table.Column<string>(nullable: false),
             BusinessName = table.Column<string>(nullable: false), // Assuming you want this to be non-nullable
-            StreetAddress = table.Column<string>(nullable: true),
-            City = table.Column<string>(nullable: true),
-            State = table.Column<string>(nullable: true),
+            StreetAddress = table.Column<string>(nullable: false),
+            City = table.Column<string>(nullable: false),
+            State = table.Column<string>(nullable: false),
             Zip = table.Column<int>(nullable: false),
             Title = table.Column<string>(nullable: true),
             EmailAddress = table.Column<string>(nullable: true)
@@ -113,9 +113,9 @@ namespace ChaserFood.Migrations
            LastName = table.Column<string>(nullable: false),
            FirstName = table.Column<string>(nullable: false),
            PhoneNumber = table.Column<long>(nullable: false),
-           StreetAddress = table.Column<string>(nullable: true),
-           City = table.Column<string>(nullable: true),
-           State = table.Column<string>(nullable: true),
+           StreetAddress = table.Column<string>(nullable: false),
+           City = table.Column<string>(nullable: false),
+           State = table.Column<string>(nullable: false),
            Zip = table.Column<int>(nullable: false),
            EmailAddress = table.Column<string>(nullable: true),
            HouseholdAdults = table.Column<int>(nullable: false),
