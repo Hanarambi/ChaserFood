@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
@@ -36,7 +37,7 @@ namespace ChaserFood.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Phone = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IsEligible = table.Column<bit>(type: "bit", nullable: false)
+                    IsEligible = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -120,31 +121,31 @@ namespace ChaserFood.Migrations
            EmailAddress = table.Column<string>(nullable: true),
            HouseholdAdults = table.Column<int>(nullable: false),
            HouseholdChildren = table.Column<int>(nullable: false),
-           HasStove = table.Column<bit>(nullable: false),
-           HasMicrowave = table.Column<bit>(nullable: false),
-           HasCanOpener = table.Column<bit>(nullable: false),
-           HasRunningWater = table.Column<bit>(nullable: false),
+           HasStove = table.Column<bool>(nullable: false),
+           HasMicrowave = table.Column<bool>(nullable: false),
+           HasCanOpener = table.Column<bool>(nullable: false),
+           HasRunningWater = table.Column<bool>(nullable: false),
            DietaryRestrictions = table.Column<string>(nullable: true),
            Allergies = table.Column<string>(nullable: true),
            Age = table.Column<int>(nullable: false),
            AfricanAmerican = table.Column<bool>(nullable: false),
-           Asian = table.Column<bit>(nullable: false),
-           Caucasian = table.Column<bit>(nullable: false),
-           Latino = table.Column<bit>(nullable: false),
-           MiddleEastern = table.Column<bit>(nullable: false),
-           NativeAmerican = table.Column<bit>(nullable: false),
-           PacificIslander = table.Column<bit>(nullable: false),
-           Other = table.Column<bit>(nullable: false),
+           Asian = table.Column<bool>(nullable: false),
+           Caucasian = table.Column<bool>(nullable: false),
+           Latino = table.Column<bool>(nullable: false),
+           MiddleEastern = table.Column<bool>(nullable: false),
+           NativeAmerican = table.Column<bool>(nullable: false),
+           PacificIslander = table.Column<bool>(nullable: false),
+           Other = table.Column<bool>(nullable: false),
            OtherWriteIn = table.Column<string>(nullable: true),
            Gender = table.Column<string>(nullable: true),
            HasTransportation = table.Column<bool>(nullable: false),
-           IsStaff = table.Column<bit>(nullable: false),
-           IsFaculty = table.Column<bit>(nullable: false),
-           FullTimeStudent = table.Column<bit>(nullable: false),
-           PartTimeStudent = table.Column<bit>(nullable: false),
-           TraditionalStudent = table.Column<bit>(nullable: false),
-           NonTraditionalStudent = table.Column<bit>(nullable: false),
-           IsEmployed = table.Column<bit>(nullable: false),
+           IsStaff = table.Column<bool>(nullable: false),
+           IsFaculty = table.Column<bool>(nullable: false),
+           FullTimeStudent = table.Column<bool>(nullable: false),
+           PartTimeStudent = table.Column<bool>(nullable: false),
+           TraditionalStudent = table.Column<bool>(nullable: false),
+           NonTraditionalStudent = table.Column<bool>(nullable: false),
+           IsEmployed = table.Column<bool>(nullable: false),
            EmploymentStatus = table.Column<string>(nullable: true),
            HouseholdEmployed = table.Column<int>(nullable: false),
            Housing = table.Column<string>(nullable: true),
@@ -171,7 +172,7 @@ namespace ChaserFood.Migrations
             State = table.Column<string>(nullable: true),
             Zip = table.Column<int>(nullable: false),
             EmailAddress = table.Column<string>(nullable: true),
-            WithSchool = table.Column<bit>(nullable: true)
+            WithSchool = table.Column<bool>(nullable: true)
         },
         constraints: table =>
         {
@@ -265,8 +266,8 @@ namespace ChaserFood.Migrations
                 AdditionalServices = table.Column<string>(nullable: true),
                 Improvements = table.Column<string>(nullable: true),
                 Comments = table.Column<string>(nullable: true),
-                VolunteerDonor = table.Column<bit>(nullable: false),
-                VolunteerCommittee = table.Column<bit>(nullable: false),
+                VolunteerDonor = table.Column<bool>(nullable: false),
+                VolunteerCommittee = table.Column<bool>(nullable: false),
                 VolunteerOther = table.Column<string>(nullable: true),
                 NeedForPantry = table.Column<int>(nullable: false)
             },
@@ -285,10 +286,10 @@ namespace ChaserFood.Migrations
 
 
 
-    }
+    
 
 
-    }
+    
 
     /// <inheritdoc />
     protected override void Down(MigrationBuilder migrationBuilder)
