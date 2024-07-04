@@ -1,7 +1,6 @@
-﻿using ChaserFood.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace ChaserFood.Data
+namespace ChaserFood.Models
 {
     public class InventoryModel
     {

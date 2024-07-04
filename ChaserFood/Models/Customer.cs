@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Net.Mail;
 
-namespace ChaserFood.Data
+namespace ChaserFood.Models
 {
     public class Customer
     {

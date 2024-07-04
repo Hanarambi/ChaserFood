@@ -1,11 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ChaserFood.Data
+namespace ChaserFood.Models
 {
     public class Business //donors
     {
         [Key] public int BusinessId { get; set; } // Primary Key
-        public string PhoneNumber { get; set; } 
+        public string PhoneNumber { get; set; }
         public string BusinessName { get; set; } // Not Null
         public string StreetAddress { get; set; }
         public string City { get; set; }
