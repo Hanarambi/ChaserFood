@@ -19,8 +19,8 @@ namespace ChaserFood.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Category = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Quantity = table.Column<int>(type: "int", nullable: false),
-                    ExpirationDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    Quantity = table.Column<int>(type: "int", nullable: false), //consider allowing null, this might help us populate the db
+                    ExpirationDate = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
