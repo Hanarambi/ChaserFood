@@ -1,8 +1,6 @@
 ﻿using ChaserFood.Data;
-using ChaserFood.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Threading.Tasks;
 
 namespace ChaserFood.Controllers
 {
@@ -14,13 +12,11 @@ namespace ChaserFood.Controllers
         {
             _context = context;
         }
-
         public async Task<IActionResult> Index()
         {
             var items = await _context.InventoryItems.ToListAsync();
             return View(items);
         }
-
         [HttpPost]
         public async Task<IActionResult> Delete(int id)
         {

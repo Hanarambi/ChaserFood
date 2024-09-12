@@ -32,6 +32,12 @@ namespace ChaserFood.Data
         public DbSet<ProductSelection> ProductSelections { get; set; }
         public DbSet<DonkeyDonor> DonkeyDonors { get; set; }
 
+        public DbSet<NewClientModel> NewClients { get; set; }
+        public DbSet<StudentModel> StudentModels { get; set; }
+        public object Items { get; internal set; }
+        public DbSet<ProductRequest> ProductRequests { get; set; }
+        public DbSet<ProductSelection> ProductSelections { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -83,3 +89,4 @@ namespace ChaserFood.Data
         }
     }
 }
+  

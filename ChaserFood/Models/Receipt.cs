@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ChaserFood.Data
+namespace ChaserFood.Models
 {
     public class Receipt
     {

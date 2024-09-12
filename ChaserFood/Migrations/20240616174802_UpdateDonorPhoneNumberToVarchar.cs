@@ -26,7 +26,7 @@ namespace ChaserFood.Migrations
                     state = table.Column<string>(type: "nvarchar(2)", maxLength: 2, nullable: false),
                     zip = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
                     email_address = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    with_school = table.Column<bool>(type: "bit", nullable: false)
+                    with_school = table.Column<bool>(type: "bool", nullable: false)
                 },
                 constraints: table =>
                 {

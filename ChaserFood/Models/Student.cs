@@ -1,4 +1,4 @@
-﻿namespace ChaserFood.Data
+﻿namespace ChaserFood.Models
 {
     public class Student
     {
